@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
-import { Platform, MenuController } from '@ionic/angular';
+import { Platform, MenuController, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
@@ -18,7 +18,9 @@ export class AppComponent {
     private statusBar: StatusBar,
     private router: Router,
     private menuCtrl: MenuController,
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
+    private ngzone: NgZone,
+    private navCtrl: NavController
   ) {
     this.initializeApp();
   }
@@ -30,7 +32,7 @@ export class AppComponent {
       if(this.platform.is('ios'))
         this.statusBar.overlaysWebView(false);
       else
-        this.statusBar.overlaysWebView(false);
+        this.statusBar.overlaysWebView(true);
       // set status bar to white
       this.statusBar.backgroundColorByHexString('#be2222');
       this.splashScreen.hide();
@@ -40,21 +42,29 @@ export class AppComponent {
 
   info(){
     this.menuCtrl.close();
-    this.router.navigate(['info'])
+    // this.ngzone.run(() => this.router.navigate(['/info'])).then();
+    this.navCtrl.navigateForward('/info');
+    
   }
 
   home(){
     this.menuCtrl.close();
-    this.router.navigate(['/tabs/home'])
+    this.navCtrl.navigateRoot('/tabs/home');
+
+    // this.router.navigate(['/tabs/home'])
   }
 
   order(){
     this.menuCtrl.close();
-    this.router.navigate(['/past-orders'])
+    // this.ngzone.run(() => this.router.navigate(['/past-orders'])).then();
+    // this.router.navigate(['/past-orders'])
+    this.navCtrl.navigateForward('/past-orders');
   }
 
   about(){
     this.menuCtrl.close();
-    this.router.navigate(['/about-us'])
+    // this.ngzone.run(() => this.router.navigate(['/about-us'])).then();
+    this.navCtrl.navigateForward('/about-us');
+    // this.router.navigate(['/about-us'])
   }
 }

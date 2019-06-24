@@ -1,6 +1,6 @@
 ion-toolbar{
     --background: rgb(190, 34, 34);
-    font-family: 'BubblegumSans-Regular';
+    // font-family: 'BubblegumSans-Regular';
   }
   ion-title{
     --color: white;
@@ -33,6 +33,8 @@ ion-title{
     height: 100%;
     width: 100%;
     font-family: 'CHEESEPIZZA';
+    background: url("../../../assets/imgs/background1.png");
+
 }
 .terms{
     width: 90%;

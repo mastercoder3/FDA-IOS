@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { FcmService } from 'src/app/services/fcm.service';
@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
   show = false;
   ob$: Subscription;
 
-  constructor(private router: Router, private api: ApiService,
+  constructor(private router: Router, private api: ApiService, private ngzone: NgZone,
     private platform: Platform, public fcm: FcmService, private localNotifications: LocalNotifications, private helper: HelperService) {
     platform.ready().then(() => {
 

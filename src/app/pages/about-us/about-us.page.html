@@ -11,6 +11,7 @@
 
 <ion-content>
   <div class="container">
+    <br>
       <h3 style="color: grey; text-align: center;">Über uns</h3>
     <p>Serviert werden ausschließlich italienische Spezialitäteten, ob Pasta von Hand gemacht, Fischspezialitäten, Risottovariationen oder auch Pizzen vom Holzofen. Wir legen bei der Zubereitung unserer Speisen einen besonderen Wert auf die Frische und Qualität der Zutaten.</p>
     <br>
@@ -23,13 +24,28 @@
   </div>
 </ion-content>
 <ion-footer>
-  <ion-toolbar>
-    <h6>Nützliche Links:</h6>
-      > <a routerLink="/terms">Allgemeine Geschäftsbedingungen</a>
+  <!-- <ion-toolbar>
+    <div id="footer">
+        <h6>Nützliche Links:</h6>
+        > <a routerLink="/terms">Allgemeine Geschäftsbedingungen</a>
+        <br>
+       > <a routerLink="/impressum">Impressum</a>
+        <br>
+       > <a routerLink="/datenschutz">Datenschutz</a>
+    </div>
+
+  </ion-toolbar> -->
+
+  <div id="footer">
+    <br>
+     <div style="position: relative; top: -10px;">
+        <h6>Nützliche Links:</h6>
+      > <a (click)="terms()">Allgemeine Geschäftsbedingungen</a>
       <br>
-     > <a routerLink="/impressum">Impressum</a>
+     > <a (click)="data()">Impressum</a>
       <br>
-     > <a routerLink="/datenschutz">Datenschutz</a>
-  </ion-toolbar>
+     > <a (click)="imprint()">Datenschutz</a>
+     </div>
+  </div>
 
 </ion-footer>

@@ -38,8 +38,11 @@ export class FooddetailsPage implements OnInit {
       this.helper.getType().subscribe(type =>{
         this.type = type;
         this.product = data;
+        this.size = null;
         if(this.type === 'pizza')
-        this.image = 'assets/imgs/cartpizza.png';
+        {this.image = 'assets/imgs/cartpizza.png';
+        // this.size - this.product.size[0];
+      }
       else if(this.type === 'pasta'){
         this.image = 'assets/imgs/pasta.png';
         this.size = this.product.size;

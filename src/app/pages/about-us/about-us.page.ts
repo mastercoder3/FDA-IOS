@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 })
 export class AboutUsPage implements OnInit {
 
-  constructor(private callNumber: CallNumber) { }
+  constructor(private callNumber: CallNumber, private navCtrl: NavController ) { }
 
   ngOnInit() {
   }
@@ -17,5 +18,20 @@ export class AboutUsPage implements OnInit {
   call(number){
     this.callNumber.callNumber(number, true);
   }
+
+  terms(){
+    this.navCtrl.navigateForward('/terms');
+  }
+
+  data(){
+    this.navCtrl.navigateForward('/impressum');
+
+  }
+
+  imprint(){
+    this.navCtrl.navigateForward('/datenschutz');
+
+  }
+
 
 }
